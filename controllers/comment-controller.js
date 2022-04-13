@@ -66,7 +66,7 @@ const commentController = {
   removeReply({ params }, res) {
     Comment.findOneAndUpdate(
       { _id: params.commentId },
-      { $pull: { replies: { replyId: params.replyId } } },
+      { $pull: { replies: { _id: params.replyId } } },
       { new: true }
     )
       .then((dbPizzaData) => res.json(dbPizzaData))
